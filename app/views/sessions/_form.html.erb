@@ -5,5 +5,8 @@
   <%= label_tag 'Password:' %>
   <%= text_field_tag :password %>
   </br>
-  <%= submit_tag 'Register' %>
+  <%= label_tag 'Remember Me' %>
+  <%= check_box_tag :remember_me, 'yes', true %>
+  </br>
+  <%= submit_tag 'Login' %>
 <% end %>

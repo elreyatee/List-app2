@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428024940) do
+ActiveRecord::Schema.define(version: 20150429034245) do
 
   create_table "items", force: true do |t|
     t.string   "name"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150428024940) do
     t.string   "slug"
     t.string   "auth_token"
     t.boolean  "admin"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end

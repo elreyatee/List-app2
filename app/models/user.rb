@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   has_many :lists
   has_many :items
 
@@ -10,4 +11,13 @@ class User < ActiveRecord::Base
   } #checks email format ***@***.***
 
   validates :password, presence: true, on: :create, length: {minimum: 5}
+  before_save :generate_token
+
+  private
+
+  def generate_token
+    begin
+      self[:auth_token] = SecureRandom.urlsafe_base64
+    end while User.exists?(auth_token: self[:auth_token])
+  end
 end

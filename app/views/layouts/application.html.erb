@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ShoppingList</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav>
-    <%= render 'layouts/navigation' %>
-  </nav>
-  <div id="messages">
-    <%= render 'layouts/messages' %>
-  </div>
-  <%= yield %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</body>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navigation' %>
+    <div class="row" id="messages">
+      <div class="small-2 columns"></div>
+      <div class="small-8 columns">
+        <%= render 'layouts/messages' %>
+      </div>
+      <div class="small-2 columns"></div>
+    </div>
+    <div class="row" id="list">
+      <div class="small-2 columns"></div>
+      <div class="small-8 columns">
+        <%= yield %>
+      </div>
+      <div class="small-2 columns"></div>
+    </div>
+  </body>
 </html>

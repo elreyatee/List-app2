@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = List.all
+    @lists = List.where("user_id = ?", current_user).reverse_order
   end
 
   def show
@@ -15,6 +15,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.creator = current_user
 
     if @list.save
       flash[:notice] = 'Your list has been created'

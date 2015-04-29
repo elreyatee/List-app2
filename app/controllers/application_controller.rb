@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :require_user
 
   def current_user
-    @current_user ||= User.find(session[:id]) if session[:id]
+    @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
   end
 
   def logged_in?
-    current_user != nil
+    !!current_user
   end
 
   def require_user

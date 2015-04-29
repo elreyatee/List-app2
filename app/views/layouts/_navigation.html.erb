@@ -1,29 +1,28 @@
 <div>
-  <ul>
-    <li>
-      <%= link_to 'Home ', root_path %>
-    </li>
-    <li>
-      <%= link_to 'Register ', register_path %>
-    </li>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to 'ShoppingList', root_path %></h1>
+      </li>
+    </ul>
 
-    <% if !logged_in? %>
-      <li>
-        <%= link_to 'Login ', login_path %>
-      </li>
-    <% end %>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="divider"></li>
+        <li><%= link_to 'Register ', register_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Login ', login_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Logout ', logout_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Create List', new_list_path%></li>
+      </ul>
 
-    <% if logged_in? %>
-      <li>
-        <%= link_to 'Logout ', logout_path %>
-      </li>
-      <li>
-        <%= link_to 'Create List', new_list_path%>
-      </li>
-      <li>
-        <p>Hello, <%= link_to "#{current_user.username}", edit_user_path(current_user) %></p>
-      </li>
-    <% end %>
-  </ul>
-  <hr>
+      <ul class="right">
+        <li>
+          <%= link_to "Hello, #{current_user.username}", edit_user_path(current_user) %>
+        </li>
+      </ul>
+    </section>
+  </nav>
 </div>
