@@ -1,0 +1,5 @@
+<% flash.each do |key, msg| %>
+  <% if msg %>
+    <%= content_tag(:div, msg) %>
+  <% end %>
+<% end %>

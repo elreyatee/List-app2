@@ -1,0 +1,9 @@
+<%= form_for list do |f| %>
+  <%= f.label 'Name' %>
+  <%= f.text_field :name %>
+  </br>
+  <%= f.label 'Description' %>
+  <%= f.text_field :description %>
+  </br>
+  <%= f.submit (list.new_record? ? 'Submit' : 'Update') %>
+<% end %>

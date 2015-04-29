@@ -1,0 +1,29 @@
+<div>
+  <ul>
+    <li>
+      <%= link_to 'Home ', root_path %>
+    </li>
+    <li>
+      <%= link_to 'Register ', register_path %>
+    </li>
+
+    <% if !logged_in? %>
+      <li>
+        <%= link_to 'Login ', login_path %>
+      </li>
+    <% end %>
+
+    <% if logged_in? %>
+      <li>
+        <%= link_to 'Logout ', logout_path %>
+      </li>
+      <li>
+        <%= link_to 'Create List', new_list_path%>
+      </li>
+      <li>
+        <p>Hello, <%= link_to "#{current_user.username}", edit_user_path(current_user) %></p>
+      </li>
+    <% end %>
+  </ul>
+  <hr>
+</div>

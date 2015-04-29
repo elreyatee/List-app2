@@ -1,0 +1,17 @@
+<div>
+  <% unless list.items.empty? %>
+    <%= form_for list, method: 'patch' do |f| %>
+    <ul>
+      <%= f.fields_for :items do |item_form| %>
+      <li>
+        <%= item_form.object.name %>
+        <%= item_form.object.description %>
+        <%= item_form.object.quantity %>
+        <%= item_form.check_box :_destroy %>
+      </li>
+      <% end %>
+      <%= f.submit 'Delete Items' %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>

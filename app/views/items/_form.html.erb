@@ -1,0 +1,14 @@
+<div>
+  <%= form_for [@list, @item], method: 'post' do |f| %>
+    <%= f.label 'Name' %>
+    <%= f.text_field :name %>
+    </br>
+    <%= f.label 'Description' %>
+    <%= f.text_field :description %>
+    </br>
+    <%= f.label 'Quantity' %>
+    <%= f.number_field :quantity %>
+    </br>
+    <%= f.submit 'Add Item' %>
+  <% end %>
+</div>

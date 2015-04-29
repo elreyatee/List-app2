@@ -1,1 +1,9 @@
-<p> "This is a test" </p>
+<%= render 'shared/content_title', title: 'Lists' %>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li>
+      <%= render 'list', list: list %>
+    </li>
+  <% end %>
+</ul>
