@@ -15,3 +15,21 @@
  *= require foundation_and_overrides
 
  */
+
+#main-content {
+  margin-top: 50px;
+}
+
+#add-item {
+  margin-top: 22px;
+}
+
+#list {
+  box-shadow: 6px 6px 5px #888888;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #B2B7B7;
+  padding: 10px;
+  list-style-type: none;
+}

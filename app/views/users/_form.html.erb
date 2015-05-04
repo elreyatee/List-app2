@@ -1,18 +1,73 @@
-<%= form_for @user do |f| %>
-  <%= f.label 'Username:' %>
-  <%= f.text_field :username %>
-  </br>
-  <%= f.label 'First Name:' %>
-  <%= f.text_field :first_name %>
-  </br>
-  <%= f.label 'Last Name:' %>
-  <%= f.text_field :last_name %>
-  </br>
-  <%= f.label 'Email:' %>
-  <%= f.text_field :email %>
-  </br>
-  <%= f.label 'Password:' %>
-  <%= f.text_field :password %>
-  </br>
-  <%= f.submit (@user.new_record? ? 'Register' : 'Update') %>
-<% end %>
+<div class="large-6 large-centered columns panel radius">
+  <h3 class="text-center">Please register</h3>
+  <br/>
+  <%= form_for @user do |f| %>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-user-plus fa-lg"></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= f.text_field :username, placeholder: "Username"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-user-plus fa-lg"></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= f.text_field :first_name, placeholder: "First Name"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-user-plus fa-lg"></i></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= f.text_field :last_name, placeholder: "Last Name"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-lock fa-lg"></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= f.text_field :password, placeholder: "Password", class: "radius" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-envelope-o fa-lg"></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= f.text_field :email, placeholder: "Email"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <%= f.submit (@user.new_record? ? 'Register' : 'Update'), class: 'button radius expand'  %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

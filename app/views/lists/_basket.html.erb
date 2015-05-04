@@ -1,17 +1,23 @@
 <div>
   <% unless list.items.empty? %>
-    <%= form_for list, method: 'patch' do |f| %>
-    <ul>
-      <%= f.fields_for :items do |item_form| %>
-      <li>
-        <%= item_form.object.name %>
-        <%= item_form.object.description %>
-        <%= item_form.object.quantity %>
-        <%= item_form.check_box :_destroy %>
-      </li>
-      <% end %>
-      <%= f.submit 'Delete Items' %>
-    </ul>
+    <%= form_for list, method: :patch do |f| %>
+      <table>
+        <tr>
+          <th>NAME</th>
+          <th>DESCRIPTION</th>
+          <th>QTY</th>
+          <th>DELETE?</th>
+        </tr>
+        <%= f.fields_for :items do |item_form| %>
+          <tr>
+            <td><%= item_form.object.name %></td>
+            <td><%= item_form.object.description %></td>
+            <td><%= item_form.object.quantity %></td>
+            <td><%= item_form.check_box :_destroy %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= f.submit 'Delete Items', class: 'button radius small alert' %>
     <% end %>
   <% end %>
 </div>

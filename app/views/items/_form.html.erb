@@ -1,14 +1,23 @@
-<div>
-  <%= form_for [@list, @item], method: 'post' do |f| %>
-    <%= f.label 'Name' %>
-    <%= f.text_field :name %>
-    </br>
-    <%= f.label 'Description' %>
-    <%= f.text_field :description %>
-    </br>
-    <%= f.label 'Quantity' %>
-    <%= f.number_field :quantity %>
-    </br>
-    <%= f.submit 'Add Item' %>
-  <% end %>
+<div class='row'>
+  <div class='small-12 panel radius'>
+    <%= form_for [@list, @item], method: :post do |f| %>
+      <div class='row'>
+        <div class='small-3 columns'>
+          <%= f.label 'Name' %>
+          <%= f.text_field :name %>
+        </div>
+        <div class='small-5 columns'>
+          <%= f.label 'Description' %>
+          <%= f.text_field :description %>
+        </div>
+        <div class='small-2 columns'>
+          <%= f.label 'Qty' %>
+          <%= f.number_field :quantity %>
+        </div>  
+        <div class='small-2 columns'>
+          <%= f.submit 'Add Item', id: 'add-item', class: 'button radius tiny success right' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

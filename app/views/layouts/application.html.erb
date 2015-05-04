@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" 'data-turbolinks-track' => true %>
@@ -14,19 +15,10 @@
 
   <body>
     <%= render 'layouts/navigation' %>
-    <div class="row" id="messages">
-      <div class="small-2 columns"></div>
-      <div class="small-8 columns">
-        <%= render 'layouts/messages' %>
-      </div>
-      <div class="small-2 columns"></div>
-    </div>
-    <div class="row" id="list">
-      <div class="small-2 columns"></div>
-      <div class="small-8 columns">
-        <%= yield %>
-      </div>
-      <div class="small-2 columns"></div>
+    <%= render 'layouts/messages' %>
+
+    <div class="row" id="main-content">
+      <%= yield %>
     </div>
   </body>
 </html>

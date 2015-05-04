@@ -1,9 +1,19 @@
-<%= form_for list do |f| %>
-  <%= f.label 'Name' %>
-  <%= f.text_field :name %>
-  </br>
-  <%= f.label 'Description' %>
-  <%= f.text_field :description %>
-  </br>
-  <%= f.submit (list.new_record? ? 'Submit' : 'Update') %>
-<% end %>
+<div class="panel radius">
+  <%= form_for list do |f| %>
+    <div class="row">
+      <div class="large-7 large-centered columns">
+        <%= f.text_field :name, placeholder: "List Name", class: "radius" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-7 large-centered columns">
+        <%= f.text_field :description, placeholder: "Description", class: "radius" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-7 large-centered columns">
+        <%= f.submit (list.new_record? ? "Create List" : "Update List"), class: "button radius expand success" %>
+      </div>
+    </div>
+  <% end %>
+</div>

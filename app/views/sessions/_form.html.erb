@@ -1,12 +1,46 @@
-<%= form_tag '/login', method: 'post' do %>
-  <%= label_tag 'Username:' %>
-  <%= text_field_tag :username %>
-  </br>
-  <%= label_tag 'Password:' %>
-  <%= text_field_tag :password %>
-  </br>
-  <%= label_tag 'Remember Me' %>
-  <%= check_box_tag :remember_me, 'yes', true %>
-  </br>
-  <%= submit_tag 'Login' %>
-<% end %>
+<div class="large-6 large-centered columns panel radius">
+  <h3 class="text-center">Log in to your account</h3>
+  <br/>
+  <%= form_tag '/login', method: 'post' do %>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-user fa-lg"></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= text_field_tag :username, nil, placeholder: "Username"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="row collapse prefix-radius">
+          <div class="large-1 columns">
+            <span class="prefix"><i class="fa fa-lock fa-lg"></i></span>
+          </div>
+          <div class="large-11 columns">
+            <%= text_field_tag :password, nil, placeholder: "Password", class: "radius" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <%= check_box_tag :remember_me, 'yes', true %>
+        <%= label_tag 'Remember Me' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <%= submit_tag 'Log In', class: 'button radius expand' %>
+      </div>
+    </div>
+  <% end %>
+  <div>
+    <hr/>
+      <p class="text-center">New to the site? <%= link_to 'Sign Up', register_path %></p>
+  </div>
+</div>
+
