@@ -14,3 +14,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.10'
 gem 'pry'
 gem 'foundation-rails'
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.4', require: false
+end

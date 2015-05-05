@@ -1,11 +1,13 @@
 class ListsController < ApplicationController
 
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @lists = List.where("user_id = ?", current_user).reverse_order
   end
 
   def show
-    @list = List.find_by(id: params[:id])
     @item = Item.new
   end
 
@@ -26,12 +28,9 @@ class ListsController < ApplicationController
     end
   end
 
-  def edit
-    @list = List.find_by(id: params[:id])
-  end
+  def edit; end
 
   def update
-    @list = List.find_by(id: params[:id])
 
     if @list.update(list_params)
       flash[:notice] = 'Your list has been updated'
@@ -43,12 +42,15 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find_by(id: params[:id])
     @list.destroy
     redirect_to root_path
   end
 
   private
+
+  def set_list
+    @list = List.find_by(id: params[:id])
+  end
 
   def list_params
     params.require(:list).permit(:name, :description, items_attributes: [:id, :_destroy])
